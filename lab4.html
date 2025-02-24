@@ -1,0 +1,135 @@
+// Copy and paste yo<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> INST377 Lab 4 </title>
+    <style>
+    	body {
+        	font-family: Arial, sanf-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #add8e6;
+        }
+        
+        h1 {
+        	color: #333;
+            margin-bottom:20px;
+        }
+        
+        .grid-container {
+        	display: grid;
+            grid-template-columns : repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+        	background-color: #663399;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        
+        input[type="text"] {
+        	padding: 5px;
+            border: 1px solid #dd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        button {
+        
+        	padding: 5px 15px;
+            background-color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #333;
+            margin: 0 auto;
+
+        }
+        
+        
+        button:hover {
+        
+        	background-color: #f0f0f0;
+        }
+        
+    </style>
+</head>
+<body>
+	<h1 id="mainHeading"> INST377 - Lab 4</h1>
+    <div class="grid-container">
+    	<section>
+        	<label> Name:
+            	<input type="text" id="nameInput" required>
+            </label>
+            <button onclick="showAlert()">Alert Me!</button>
+        </section>
+        
+        <section>
+        	<button onclick="changeColor()">Change Color</button>
+        </section>
+        
+        <section>
+        	<label> Text Tester:
+            	<input type="text" id="textInput">
+            </label>
+            <button onclick="validateText()">Validate Text</button>
+        </section>
+        
+        <section>
+        	<button onclick="addText()">Add Text</button>
+        </section>
+        
+     </div>
+
+<script>
+	let isBlue = true; // Starting with light blue
+    
+    function showAlert() {
+    	const name = document.getElementById("nameInput").value;
+        if (name) {
+        	alert(`Hi ${name}!`);
+        }
+    }
+    
+    
+    function changeColor() {
+    	const body = document.body;
+        if (isBlue) {
+        	body.style.backgroundColor = '#90EE90';
+        } else {
+        	body.style.backgroundColor = '#add8e6';
+        }
+        isBlue = !isBlue;
+    }
+    
+    
+    function validateText() {
+    	const text = document.getElementById('textInput').value;
+        const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        
+        if (validation.test(text)) {
+        	alert("Text contains special characters!");
+        } else {
+        	alert("Text is valid - no special characters found");
+        }
+    }
+    
+    
+    function addText() {
+    	const heading = document.getElementById("mainHeading");
+        heading.textContent += " Add Text";
+    }
+</script>
+    
+</body>
+</html>
+ur work, or start typing.
